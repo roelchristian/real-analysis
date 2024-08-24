@@ -1,0 +1,103 @@
+% !TEX program = lualatex lualatex
+\documentclass[10pt]{amsbook}
+
+\usepackage{geometry}
+\geometry{
+    b5paper,
+    inner=1.25in,
+    outer=1.25in,
+    top=1in,
+    bottom=1in}
+
+\title{Real Analysis Quals Reviewer}
+\author{Roel Christian Yambao}
+\date{2024}
+
+\usepackage{amsmath, amssymb, amsthm, amsfonts}
+\usepackage{mathtools}
+\usepackage{microtype}
+
+\widowpenalty=10000
+\clubpenalty=10000
+
+
+\swapnumbers
+\usepackage{enumitem}
+
+
+
+% Theorem environments
+
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}[chapter]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{exercise}[theorem]{Exercise}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{sectionthm}[theorem]{}
+
+% Tikz for drawing regions
+\usepackage{tikz}
+\usetikzlibrary{calc,intersections,through,backgrounds,angles,quotes,decorations.markings,decorations.pathreplacing,decorations.pathmorphing,arrows.meta}
+
+
+% % Pad theorem numbers with zeros so that they are all two digits
+% \renewcommand{\thetheorem}{\thesection.\ifnum\value{theorem}<10 0\fi\arabic{theorem}}
+
+% Solution environment
+\newenvironment{solution}{\begin{proof}[Solution]}{\end{proof}}
+% Renew ref to be bold
+
+
+% Math macros
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+% redefine \Re and \Im to use \operatorname
+\renewcommand{\Re}{\operatorname{Re}}
+\renewcommand{\Im}{\operatorname{Im}}
+\newcommand{\conj}[1]{\overline{#1}}
+\newcommand{\abs}[1]{\left\lvert #1 \right\rvert}
+\newcommand{\Arg}{\operatorname{Arg}}
+\newcommand{\partialfrac}[2]{\frac{\partial #1}{\partial #2}}
+\usepackage[pdfencoding=auto, psdextra]{hyperref}
+\usepackage{xcolor}
+% Hyperref setup
+\hypersetup{
+    colorlinks,
+    linkcolor={green!50!black},
+    citecolor={green!50!black},
+    urlcolor={green!50!black}
+}
+
+
+% Line spacing
+% \usepackage{setspace}
+% \setstretch{1.2}
+
+\AtBeginDocument{
+    \let\epsilon\varepsilon
+    \let\phi\varphi
+    \let\emptyset\varnothing
+}
+
+\begin{document}
+\raggedbottom
+
+\maketitle
+
+\tableofcontents
+
+\include{chapters/01}
+\include{chapters/02}
+\include{chapters/03}
+
+% \include{theorems}
+\end{document}

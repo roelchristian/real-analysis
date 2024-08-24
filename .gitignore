@@ -1,0 +1,14 @@
+# Latex files
+*.aux
+*.bbl
+*.blg
+*.log
+*.out
+*.toc
+*.synctex.gz
+*.pdf
+*.fdb_latexmk
+*.fls
+
+# Mac files
+.DS_Store

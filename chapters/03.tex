@@ -1,0 +1,19 @@
+\chapter{Sequences and series}
+
+\section*{Convergent sequences}
+
+\begin{definition}
+    A sequence is a map \(a: \N \to X\), where \(X\) is a metric space. We write \(\{a_n\}\) for the map \(a\) and \(a_n\) instead of \(a(n)\) for the image of \(n\) under \(a\); the latter we call the \(n\)th term of the sequence.
+\end{definition}
+
+\begin{definition}
+    A sequence \(\{a_n\}\) in a metric space \(X\) is said to \emph{converge} if there is a point \(a \in X\) such that for every \(\epsilon > 0\), there exists an \(N \in \N\) such that \(d(a_n, a) < \epsilon\) for all \(n \geq N\).
+
+    We also say that the sequence \(\{a_n\}\) \emph{converges to} \(a\), and write 
+    \[
+        \lim_{n \to \infty} a_n = a.
+    \]
+
+    If no such \(a\) exists, we say that the sequence \(\{a_n\}\) \emph{diverges}.
+\end{definition}
+

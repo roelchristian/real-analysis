@@ -1,0 +1,18 @@
+\chapter{Basic topology}
+
+\section*{Finite, countable and uncountable sets}
+
+\begin{definition}
+    A \emph{function} \(f\) from a set \(X\) to a set \(Y\) is a rule that assigns to each element \(x \in X\) a unique element \(f(x) \in Y\). We write \(f: X \to Y\).
+\end{definition}
+
+\section*{Metric spaces}
+\begin{definition}
+    A \emph{metric space} is a pair \((X, d)\) where \(X\) is a set and \(d: X \times X \to \R\) is a function satisfying the following properties:
+    \begin{enumerate}
+        \item \(d(x, y) \geq 0\) for all \(x, y \in X\), with equality if and only if \(x = y\).
+        \item \(d(x, y) = d(y, x)\) for all \(x, y \in X\).
+        \item \(d(x, z) \leq d(x, y) + d(y, z)\) for all \(x, y, z \in X\).
+    \end{enumerate}
+    Any function satisfying these properties is called a \emph{distance function} or a \emph{metric} on \(X\). The elements of \(X\) are customarily called \emph{points}.
+\end{definition}

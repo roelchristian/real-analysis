@@ -1,0 +1,254 @@
+\chapter{Preliminaries}
+
+\section*{Introduction}
+
+\begin{sectionthm}
+    Let \(A\) be a set. If \(x\) is an element of \(A\), we write \(x \in A\); otherwise we write \(x \notin A\). A set which contains no elements is called the \emph{empty set} and is denoted by \(\emptyset\); if there exists an element \(x\) such that \(x \in A\), we say that \(A\) is nonempty.
+
+    A set \(B\) is a \emph{subset} of a set \(A\) if every element of \(B\) is an element of \(A\), i.e.,
+    \[
+        x \in B \implies x \in A,
+    \]
+    in which case we write \(B \subseteq A\); \(B\) is a \emph{proper subset} of \(A\) if there exists an element of \(A\) which is not an element of \(B\). We say that two sets \(A\) and \(B\) are equal and we write \(A = B\) if and only if the statements \(A \subseteq B\) and \(B \subseteq A\) simultaneously hold. Otherwise, we write \(A \neq B\).
+
+    The following results follow immediately from the definitions:
+\end{sectionthm}
+
+\begin{theorem}
+    Every set is a subset of itself.
+\end{theorem}
+
+\begin{theorem}
+    The empty set is a subset of every set.
+\end{theorem}
+
+\begin{definition}
+    If \(A\) and \(B\) are sets, we define the following sets:
+    \begin{enumerate}[label=(\alph*), wide]
+        \item The union of \(A\) and \(B\), denoted by \(A \cup B\), is the set of all elements which are in \(A\) or in \(B\), i.e.,
+        \[
+            A \cup B = \{x \mid x \in A \text{ or } x \in B\}.
+        \]
+        \item The intersection of \(A\) and \(B\), denoted by \(A \cap B\), is the set of all elements which are in both \(A\) and \(B\), i.e.,
+        \[
+            A \cap B = \{x \mid x \in A \text{ and } x \in B\}.
+        \]
+        \item The difference of \(A\) and \(B\), denoted by \(A \setminus B\), is the set of all elements which are in \(A\) but not in \(B\), i.e.,
+        \[
+            A \setminus B = \{x \mid x \in A \text{ and } x \notin B\}.
+        \]
+        \item An ordered pair \((x, y)\) is defined to be the set \(\{\{x\}, \{x, y\}\}\), where \(x \in A\) and \(y \in B\). The set of all ordered pairs is denoted by \(A \times B\) and is called the \emph{Cartesian product} of \(A\) and \(B\). If \(A = B\), we would often write \(A^2\) instead of \(A \times A\).
+        \item A \emph{relation} on a set \(A\) is a subset of \(A \times A\). If \((x, y) \in R\), for some relation \(R\) on \(A\), we write \(xRy\).
+    \end{enumerate}
+\end{definition}
+
+\begin{definition}
+    An \emph{order} on a set \(S\) is a relation written \(<\) which satisfies the following two properties:
+    \begin{enumerate}[label=(\alph*), wide]
+        \item If \(x, y \in S\) exactly one of the statements
+        \[
+            x < y, \quad x = y, \quad y < x
+        \]
+        holds.
+        \item If \(x, y, z \in S\) and \(x < y\) and \(y < z\), then \(x < z\).
+    \end{enumerate}
+
+    The pair \((S, <)\) is called an \emph{ordered set}.
+\end{definition}
+
+\begin{sectionthm}
+    It would often be convenient to write \(x > y\) instead of \(y < x\). Moreover, we would also write \(x \leq y\) to mean \(x < y\) or \(x = y\), without specifying which of the two holds. Similarly, we would write \(x \geq y\) to mean \(x > y\) or \(x = y\).
+\end{sectionthm}
+
+\begin{definition}
+    \label{def:upper-bound}
+    Suppose \(S\) is an ordered set, and \(E \subseteq S\). If there exists a \(\beta \in S\) such that \(x \leq \beta\) for all \(x \in E\), we say that \(E\) is \emph{bounded above} and call \(\beta\) an \emph{upper bound} of \(E\). If there exists an \(\alpha \in S\) such that \(\alpha \leq x\) for all \(x \in E\), we say that \(E\) is \emph{bounded below} and call \(\alpha\) a \emph{lower bound} of \(E\).
+\end{definition}
+
+\begin{definition}
+    \label{def:supremum}
+    Suppose \(S\) is an ordered set, \(E \subseteq S\), and \(E\) is bounded above. If there exists an \(\alpha \in S\) such that
+    \begin{enumerate}[label=(\alph*), wide]
+        \item \(\alpha\) is an upper bound of \(E\), and
+        \item if \(\gamma < \alpha\), then \(\gamma\) is not an upper bound of \(E\),\label{def:sup:least}
+    \end{enumerate}
+    then we say that \(\alpha\) is the \emph{least upper bound} (or \emph{supremum}) of \(E\), and write \(\alpha = \sup E\). That such an \(\alpha\) is unique follows directly from \ref{def:sup:least}.
+
+    The \emph{greatest lower bound} (or \emph{infimum}) of \(E\), denoted by \(\inf E\), is defined analogously.
+\end{definition}
+
+\begin{definition}
+    \label{def:lub-property}
+    An ordered set \(S\) is said to have the \emph{least upper bound property} if the following statement holds:
+    \begin{quotation}
+        \quad If \(E \subseteq S\), \(E\) is nonempty, and \(E\) is bounded above, then \(\sup E\) exists.
+    \end{quotation}
+\end{definition}
+
+\begin{theorem}
+    Suppose \(S\) is an ordered set with the least upper bound property, \(B \subseteq S\), \(B\) is nonempty and \(B\) is bounded below. Let \(L\) be the set of all lower bounds of \(B\). Then
+    \[
+        \alpha = \sup L
+    \]
+    exists in \(S\), and \(\alpha = \inf B\).
+\end{theorem}
+
+\begin{proof}
+    Since \(B\) is bounded below, \(L\) is nonempty [\S~\ref{def:upper-bound}]. In particular, we find that \(L\) consists of all elements \(\beta \in S\) such that \(\beta \leq x\) for all \(x \in B\). From this it follows that every element of \(B\) is an upper bound of \(L\), so that \(L\) is bounded above. By the least upper bound property, \(\sup L\) exists, and we denote it by \(\alpha\).
+
+    If \(\gamma < \alpha\), then \(\gamma\) is not an upper bound of \(L\), so that \(\gamma \notin B\) [\S~\ref{def:supremum}\ref{def:sup:least}]. It follows that \(\alpha \leq x\) for all \(x \in B\), so that \(\alpha \in L\).
+
+    If \(\alpha < \beta\) for some \(\beta \in S\), then \(\beta \notin L\), so that \(\alpha\) is a lower bound of \(B\) but any \(\beta > \alpha\) is not. Therefore, \(\alpha = \inf B\).
+\end{proof}
+
+\section*{The field of real numbers}
+
+\begin{definition}
+    \label{def:field}
+    A field is a set \(F\) together with two operations, addition and multiplication, satisfying the following properties, often called the `field axioms':
+
+    \begin{enumerate}
+        \item[\textbf{(A)}] \textbf{Axioms for addition}
+        \begin{enumerate}[label=(A\arabic*)]
+            \item For all \(x, y \in F\), \(x + y \in F\).
+            \item Addition is commutative: for all \(x, y \in F\), \(x + y = y + x\).
+            \item Addition is associative: for all \(x, y, z \in F\), \((x + y) + z = x + (y + z)\).
+            \item There exists an element \(0 \in F\) such that for all \(x \in F\), \(x + 0 = x\).
+            \item For every \(x \in F\), there exists an element \(-x \in F\) such that \(x + (-x) = 0\).
+        \end{enumerate}
+
+        \medskip
+
+        \item[\textbf{(M)}] \textbf{Axioms for multiplication}
+        \begin{enumerate}[label=(M\arabic*)]
+            \item For all \(x, y \in F\), \(xy \in F\).
+            \item Multiplication is commutative: for all \(x, y \in F\), \(xy = yx\).
+            \item Multiplication is associative: for all \(x, y, z \in F\), \((xy)z = x(yz)\).
+            \item There exists an element \(1 \in F\) distinct from \(0\) such that for all \(x \in F\), \(1x = x\).
+            \item For every \(x \in F\), if \(x \neq 0\), there exists an element \(x^{-1} \in F\) such that \(xx^{-1} = 1\).
+        \end{enumerate}
+        
+        \medskip
+
+        \item[\textbf{(D)}] \textbf{Distributive law}
+        \begin{enumerate}[label=(D\arabic*)]
+            \item The distributive law holds: for all \(x, y, z \in F\),
+            \[
+                x(y + z) = xy + xz.
+            \]
+        \end{enumerate}
+    \end{enumerate}
+\end{definition}
+
+\begin{sectionthm}
+    In any field we would often write
+    \begin{align*}
+        x - y &\coloneqq x + (-y), \\
+        x/y \text{ or } \frac{x}{y}&\coloneqq xy^{-1},\\
+        x + y + z &\coloneqq (x + y) + z,\\
+        xyz &\coloneqq (xy)z,\\
+        x^2 &\coloneqq xx,\\
+        x^3 &\coloneqq xxx,\\
+        2x &\coloneqq x + x,\\
+        3x &\coloneqq x + x + x,\\
+        &\text{etc.}
+    \end{align*}
+    as a matter of convenience.
+\end{sectionthm}
+
+\begin{theorem}
+    The axioms for addition imply the following statements for all \(x, y, z \in F\):
+    \begin{enumerate}[label=(\alph*), wide]
+        \item If \(x + y = x + z\), then \(y = z\).\label{thm:addition-cancellation}
+        \item If \(x + y = x\) then \(y = 0\).\label{thm:addition-identity-unique}
+        \item If \(x + y = 0\), then \(y = -x\).\label{thm:addition-inverse}
+        \item \(-(-x) = x\).
+    \end{enumerate}
+\end{theorem}
+
+Statement \ref{thm:addition-cancellation} is often called the \emph{cancellation law} for addition, while statements \ref{thm:addition-identity-unique} and \ref{thm:addition-inverse} assert the uniqueness of the additive identity and the additive inverse (the latter with respect to \(x\)), respectively.
+
+\begin{theorem}
+    There exists an ordered field \(\R\) which has the least upper bound property.
+\end{theorem}
+
+\begin{theorem}
+    \label{thm:archimedean-property}
+    If \(x, y \in \R\) and \(x > 0\), then there exists a positive integer \(n\) such that
+    \[
+        nx > y.
+    \]
+\end{theorem}
+
+\begin{proof}
+    This result is often called the \emph{Archimedean property} of \(\R\). Let \(A\) be the set
+    \[
+        A = \{nx : n \in \N\}.
+    \]
+    If the statement is false, then \(nx \leq y\) and \(y\) is an upper bound of \(A\). Since \(A\) is nonempty, the least upper bound property implies that \(\alpha = \sup A\) exists. Since \(x > 0\), we have \(\alpha - x < \alpha\), so that \(\alpha - x\) is not an upper bound of \(A\). Therefore, there exists an \(m \in \N\) such that \(\alpha - x < mx\), or \(\alpha < (m + 1)x\); but \((m + 1)x \in A\) since \(m + 1\) is also an integer, contradicting the assumption that \(\alpha\) is an upper bound of \(A\).
+\end{proof}
+
+\begin{corollary}
+    \label{cor:archimedean-property}
+    The following statements hold:
+    \begin{enumerate}[label=\normalfont{(\alph*)}]
+        \item The set of positive integers is not bounded above.
+        \item For every real number \(\epsilon > 0\), there exists a positive integer \(n\) such that \(0 < 1/n < \epsilon\).
+    \end{enumerate}
+\end{corollary}
+
+\begin{proof}
+    Both claims can be seen as restatements of Theorem~\ref{thm:archimedean-property}.
+
+    \begin{enumerate}[label=(\alph*), wide]
+        \item For all real numbers \(x\) and \(y\) with \(x > 0\), there exists a positive integer \(n\) such that \(nx > y\). This implies that \(n > y/x\); since \(y/x\) is itself a real number we can write \(\xi = y/x\), and we find that \(n > \xi\) for all real numbers \(\xi\). Therefore, the set of positive integers is not bounded above.
+        
+        \item Fix \(x = \epsilon\) and \(y = 1\) in Theorem~\ref{thm:archimedean-property}. Then there exists a positive integer \(n\) such that \(n\epsilon > 1\), or \(n > 1/\epsilon\). This implies that \(0 < 1/n < \epsilon\), as required.
+    \end{enumerate}
+\end{proof}
+
+\begin{theorem}
+    \label{thm:q-is-dense-in-r}
+    If \(x\) and \(y\) are real numbers, such that \(x < y\), then there exists a rational number \(r\) such that \(x < r < y\).
+\end{theorem}
+
+\section*{The extended real number system}
+
+\section*{The complex field}
+
+\section*{Euclidean spaces}
+
+\section*{Appendix: Construction of the real numbers}
+
+\section*{Exercises}
+
+\begin{enumerate}[label={\arabic*.}, wide, itemsep=1.5em]
+    \item If \(r\) is rational (\(r \neq 0\)) and \(x\) is irrational, prove that \(r + x\) and \(rx\) are irrational.
+    
+    \begin{solution}
+        Let \(r = m/n\) for some integers \(m\) and \(n\), and suppose that \(r + x\) is rational. Then there exists integers \(a\) and \(b\) such that
+        \[
+            r + x = \frac{a}{b} = \frac{m}{n} + x.
+        \]
+        We then have
+        \[
+            x = \frac{a}{b} - \frac{m}{n} = \frac{an - bm}{bn} \in \Q,
+        \]
+        contradicting the assumption that \(x\) is irrational.
+
+        Similarly, if \(rx\) is rational, then there exists integers \(a\) and \(b\) such that
+        \[
+            rx = \frac{a}{b} = \frac{m}{n}x.
+        \]
+        Thus,
+        \[
+            x = \frac{a}{b} \cdot \frac{n}{m} = \frac{an}{bm} \in \Q,
+        \]
+        again contradicting the assumption that \(x\) is irrational. Therefore, \(r + x\) and \(rx\) are irrational.
+    \end{solution}
+
+    \item Prove that there is no rational number whose square is \(12\).
+    \begin{solution}
+        
+    \end{solution}
+\end{enumerate}
